@@ -24,14 +24,22 @@ export default function AdminGallery() {
   const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const fetchGallery = async () => {
-    try {
-      const res = await fetch(`${API}/api/gallery`)
-      const data = await res.json()
-      setImages(data)
-    } catch {
-      toast.error("Failed to load gallery")
-    }
+  try {
+    console.log("API URL:", `${API}/api/gallery`)
+
+    const res = await fetch(`${API}/api/gallery`)
+    console.log("STATUS:", res.status)
+
+    const data = await res.json()
+    console.log("DATA:", data)
+
+    setImages(data)
+
+  } catch (err) {
+    console.error("GALLERY ERROR:", err)
+    toast.error("Failed to load gallery")
   }
+}
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0] || null
