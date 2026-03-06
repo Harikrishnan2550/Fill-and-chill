@@ -21,12 +21,15 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
   const [visible, setVisible] = useState(false)
 
+  const API =
+  process.env.NEXT_PUBLIC_API_URL || "https://fill-and-chill.onrender.com";
+
   useEffect(() => {
     const fetchStats = async () => {
       try {
         const token = localStorage.getItem("adminToken")
-        const res = await fetch("http://localhost:5000/api/admin/stats", {
-          headers: { Authorization: `Bearer ${token}` },
+const res = await fetch(`${API}/api/admin/stats`, {
+            headers: { Authorization: `Bearer ${token}` },
         })
         const data = await res.json()
         setStats({ shops: data.shops || 0, gallery: data.gallery || 0 })

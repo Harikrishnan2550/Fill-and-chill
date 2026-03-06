@@ -15,6 +15,9 @@ export default function ChangePasswordPage() {
   const [showNew, setShowNew] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
 
+  const API =
+  process.env.NEXT_PUBLIC_API_URL || "https://fill-and-chill.onrender.com";
+
   const passwordStrength = (pwd: string) => {
     if (!pwd) return null
     if (pwd.length < 6) return { label: "Weak", color: "bg-red-400", width: "w-1/4", text: "text-red-500" }
@@ -39,8 +42,8 @@ export default function ChangePasswordPage() {
     setLoading(true)
     try {
       const token = localStorage.getItem("adminToken")
-      const res = await fetch("http://localhost:5000/api/admin/change-password", {
-        method: "PUT",
+const res = await fetch(`${API}/api/admin/change-password`, {
+          method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
