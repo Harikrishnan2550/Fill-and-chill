@@ -69,7 +69,7 @@ export default function EditorialNavbar() {
                 alt="Food Court Logo"
                 width={110}
                 height={110}
-                className="object-contain"
+                className="object-contain w-[70px] sm:w-[85px] md:w-[100px] lg:w-[110px] h-auto"
                 priority
               />
             </Link>
