@@ -5,8 +5,7 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 
-const API =
-  process.env.NEXT_PUBLIC_API_URL || "https://fill-and-chill.onrender.com";
+const API = process.env.NEXT_PUBLIC_API_URL;
 const isLocal = API?.includes("localhost");
 
 /* ─────────────────── PATTERNS ─────────────────── */
