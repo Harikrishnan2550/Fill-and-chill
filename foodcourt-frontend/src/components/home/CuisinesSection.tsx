@@ -6,6 +6,7 @@ import {
   useTransform,
   useInView,
   Variants,
+  Transition,
 } from "framer-motion"
 import { useRef, useState } from "react"
 import Image from "next/image"
@@ -102,7 +103,7 @@ const cardVariants: Variants = {
   },
 }
 
-const springHover = {
+const springHover: Transition = {
   type: "spring",
   stiffness: 400,
   damping: 18,
