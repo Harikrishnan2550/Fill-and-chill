@@ -4,8 +4,8 @@ import { useEffect, useState } from "react"
 import { Upload, Trash2, ImagePlus, Star, Images } from "lucide-react"
 import { toast, Toaster } from "sonner"
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
-
+const API =
+  process.env.NEXT_PUBLIC_API_URL || "https://fill-and-chill.onrender.com"
 type GalleryItem = {
   _id: string
   image: string
