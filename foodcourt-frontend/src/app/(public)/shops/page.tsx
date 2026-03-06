@@ -328,33 +328,32 @@ export default function ShopsPage() {
   const [shops, setShops] = useState<ShopType[]>([]);
 
   useEffect(() => {
-    const fetchShops = async () => {
-      try {
-        const API = process.env.NEXT_PUBLIC_API_URL;
-        const res = await fetch(`${API}/api/shops`);
-        const data = await res.json();
+  const fetchShops = async () => {
+    try {
+      const res = await fetch(`${API}/api/shops`);
+      const data = await res.json();
 
-        const mapped = data.map((item: any, index: number) => ({
-  id: String(index + 1).padStart(2, "0"),
-  name: item.name,
-  sub: item.cuisine,
-  tag: item.cuisine,
-  img: item.image ? `${API}${item.image}` : "/biriyani.png",
-  hue: SHOPS[index % SHOPS.length].hue,
-  desc: item.longDescription || "No description available.",
-  hours: `${item.openTime || "11 AM"} – ${item.closeTime || "11 PM"}`,
-  rating: item.rating ? Number(item.rating).toFixed(1) : "4.5",
-  phone: item.phone || "919876543210",
-}));
+      const mapped = data.map((item: any, index: number) => ({
+        id: String(index + 1).padStart(2, "0"),
+        name: item.name,
+        sub: item.cuisine,
+        tag: item.cuisine,
+        img: item.image ? `${API}${item.image}` : "/biriyani.png",
+        hue: SHOPS[index % SHOPS.length].hue,
+        desc: item.longDescription || "No description available.",
+        hours: `${item.openTime || "11 AM"} – ${item.closeTime || "11 PM"}`,
+        rating: item.rating ? Number(item.rating).toFixed(1) : "4.5",
+        phone: item.phone || "919876543210",
+      }));
 
-        setShops(mapped);
-      } catch (err) {
-        console.error("Failed to fetch shops:", err);
-      }
-    };
+      setShops(mapped);
+    } catch (err) {
+      console.error("Failed to fetch shops:", err);
+    }
+  };
 
-    fetchShops();
-  }, []);
+  fetchShops();
+}, []);
 
 
 
