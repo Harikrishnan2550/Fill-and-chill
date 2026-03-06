@@ -3,9 +3,6 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-console.log("BREVO USER:", process.env.BREVO_SMTP_USER)
-console.log("BREVO PASS:", process.env.BREVO_SMTP_PASS)
-
 const transporter = nodemailer.createTransport({
   host: process.env.BREVO_SMTP_HOST || "smtp-relay.brevo.com",
   port: Number(process.env.BREVO_SMTP_PORT) || 587,
