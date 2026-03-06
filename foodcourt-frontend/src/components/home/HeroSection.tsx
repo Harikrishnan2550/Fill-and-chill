@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform, useSpring, Variants } from "framer-motion"
+import { motion, useScroll, useTransform, useSpring, Variants, Transition } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
@@ -68,7 +68,7 @@ const fadeUpVariants: Variants = {
   },
 }
 
-const springHover = {
+const springHover: Transition = {
   type: "spring",
   stiffness: 420,
   damping: 18,
