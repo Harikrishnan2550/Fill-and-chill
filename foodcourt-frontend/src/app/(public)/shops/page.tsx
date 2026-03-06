@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 
+const API =
+  process.env.NEXT_PUBLIC_API_URL || "https://fill-and-chill.onrender.com";
+
 type ShopType = {
   id: string;
   name: string;
