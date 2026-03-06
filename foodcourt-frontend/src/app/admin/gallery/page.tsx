@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Upload, Trash2, ImagePlus, Star, Images } from "lucide-react"
 import { toast, Toaster } from "sonner"
 
-const API = "http://localhost:5000"
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
 
 type GalleryItem = {
   _id: string
